@@ -36,8 +36,8 @@
 
 > ✅ **Checkpoint 1.1** ถ่ายภาพหน้าจอ Firebase Console ที่แสดงหน้า Project Overview ของโปรเจกต์ที่สร้างเสร็จแล้ว
 
-```text
-บันทึกรูปผลลัพธ์ที่นี่
+<img width="1917" height="1020" alt="image" src="https://github.com/user-attachments/assets/24176909-2180-40d3-8aca-f0efad4e48f5" />
+
 ```
 
 ### ขั้นตอนที่ 1.2: 🔧 ทำตามขั้นตอน — ติดตั้งเครื่องมือและเชื่อมโปรเจกต์ด้วย FlutterFire CLI
@@ -164,8 +164,15 @@ Future<void> main() async {
 
 > ✅ **Checkpoint 2.1** ทดสอบสมัครสมาชิกด้วย Email ใหม่สำเร็จ ถ่ายภาพหน้าจอ Firebase Console เมนู Authentication → Users ที่แสดงบัญชีที่เพิ่งสมัคร จากนั้นทดสอบกรณีผิดพลาด 2 กรณี คือ (ก) สมัครซ้ำด้วย Email เดิม และ (ข) ใส่รหัสผ่านสั้นเกินไป ถ่ายภาพหน้าจอข้อความ Error ทั้งสองกรณี พร้อมอธิบายว่าโค้ดส่วนใดใน `auth_service.dart` เป็นตัวจัดการแต่ละกรณี
 
-```text
-บันทึกรูปผลลัพธ์ที่นี่ และคำอธิบายของแต่ละกรณี
+<img width="1300" height="973" alt="image" src="https://github.com/user-attachments/assets/3b944e94-d0a3-4cdd-9bf2-4fc8702c3f65" />
+จากภาพเป็นการทดสอบสมัครสมาชิกด้วยอีเมลที่ยังไม่เคยลงทะเบียนในระบบ โดยกรอกอีเมลและรหัสผ่านตามเงื่อนไข จากนั้นกดปุ่มสมัครสมาชิก ระบบสามารถสร้างบัญชีผู้ใช้ผ่าน Firebase Authentication ได้สำเร็จ
+<img width="1467" height="806" alt="image" src="https://github.com/user-attachments/assets/d52ea4bb-fb8d-4614-8bed-1173ac6bbd12" />
+จากภาพเป็นการตรวจสอบบัญชีผู้ใช้ที่สมัครใหม่ผ่าน Firebase Console ในเมนู Authentication → Users พบว่าระบบบันทึกอีเมลของผู้ใช้ไว้ในฐานข้อมูลผู้ใช้ของ Firebase ได้สำเร็จ
+<img width="1122" height="870" alt="image" src="https://github.com/user-attachments/assets/ca8d9f8b-d9c9-4616-bbd2-a0b9ace28355" />
+จากภาพเป็นการทดสอบสมัครสมาชิกโดยใช้อีเมลที่ลงทะเบียนไว้แล้ว ระบบแจ้งข้อผิดพลาดว่าอีเมลนี้สมัครสมาชิกแล้ว โดยโค้ดในไฟล์ auth_service.dart ใช้ on FirebaseAuthException catch (e) เพื่อรับข้อผิดพลาด และตรวจสอบ e.code ในกรณี email-already-in-use เพื่อแสดงข้อความแจ้งเตือนแก่ผู้ใช้
+<img width="1112" height="841" alt="image" src="https://github.com/user-attachments/assets/c0a998ee-181f-4475-84fd-782d1388b58e" />
+จากภาพเป็นการทดสอบสมัครสมาชิกโดยใช้รหัสผ่านที่สั้นกว่าข้อกำหนดของ Firebase ระบบจะแจ้งข้อผิดพลาดเมื่อรหัสผ่านไม่ผ่านเงื่อนไข โดยโค้ดในไฟล์ auth_service.dart ตรวจสอบข้อผิดพลาด weak-password และแสดงข้อความแนะนำให้ใช้รหัสผ่านอย่างน้อย 6 ตัวอักษร
+
 ```
 
 ---
